@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$ANSEMBULL — The Golden Bull Is Here</title>
+  <meta name="description" content="$ANSEMBULL — community-powered Solana token. Strength. Momentum. Prosperity. Join the herd on PumpSwap." />
+  <link rel="icon" href="./logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green-900: #041208;
+      --green-850: #071a0d;
+      --green-800: #0a2412;
+      --green-700: #0e3a1c;
+      --green-600: #14632c;
+      --green-500: #1a9a42;
+      --green-400: #2fd45e;
+      --green-300: #7ef0a0;
+      --gold: #e8c547;
+      --gold-bright: #ffd76a;
+      --gold-deep: #c9a227;
+      --cream: #f4f1e4;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--green-900);
+      color: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(4, 18, 8, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(47, 212, 94, 0.18);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 74px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.08em;
+      font-size: 1.55rem;
+      color: var(--gold-bright);
+    }
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 16px rgba(232, 197, 71, 0.35);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .nav-links a { color: #d9f5e1; opacity: 0.88; }
+    .nav-links a:hover { color: var(--gold-bright); opacity: 1; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 999px;
+      padding: 12px 22px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-gold {
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold-deep));
+      color: #13200f;
+      box-shadow: 0 8px 24px rgba(232, 197, 71, 0.28);
+    }
+    .btn-green {
+      background: linear-gradient(180deg, var(--green-400), var(--green-600));
+      color: #041208;
+      box-shadow: 0 8px 24px rgba(47, 212, 94, 0.25);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold-bright);
+      border: 1px solid rgba(232, 197, 71, 0.55);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: grid;
+      place-items: end center;
+      padding: 40px 0 72px;
+      overflow: hidden;
+    }
+    .hero-banner {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.15) contrast(1.05);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(4,18,8,0.35) 0%, rgba(4,18,8,0.45) 40%, rgba(4,18,8,0.92) 100%),
+        radial-gradient(ellipse at 50% 80%, rgba(26,154,66,0.35), transparent 55%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      width: min(900px, calc(100% - 40px));
+    }
+    .hero-logo {
+      width: 132px;
+      height: 132px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--gold);
+      box-shadow: 0 0 0 8px rgba(232,197,71,0.12), 0 20px 50px rgba(0,0,0,0.45);
+    }
+    .kicker {
+      color: var(--green-300);
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 8px;
+    }
+    h1, h2, .display {
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 0.04em;
+      line-height: 0.95;
+    }
+    h1 {
+      font-size: clamp(3.4rem, 9vw, 7.2rem);
+      color: var(--gold-bright);
+      text-shadow: 0 8px 30px rgba(0,0,0,0.45);
+    }
+    h1 span { display: block; color: var(--cream); font-size: 0.42em; letter-spacing: 0.14em; margin-top: 10px; }
+    .hero p {
+      margin: 18px auto 28px;
+      max-width: 640px;
+      font-size: 1.08rem;
+      color: #e8f6ec;
+    }
+    .hero-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    .ca-bar {
+      margin-top: 28px;
+      background: rgba(7, 26, 13, 0.78);
+      border: 1px solid rgba(47, 212, 94, 0.28);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .ca-bar small { color: var(--green-300); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+    .ca-bar code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 1rem;
+      color: var(--gold-bright);
+      word-break: break-all;
+    }
+    .copy-btn {
+      background: var(--green-600);
+      color: white;
+      border: 0;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    section { padding: 88px 0; }
+    h2 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: var(--gold-bright);
+      margin-bottom: 14px;
+    }
+    .lede { color: #cfead6; max-width: 720px; margin-bottom: 34px; }
+
+    .about {
+      background:
+        radial-gradient(circle at 10% 20%, rgba(26,154,66,0.16), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(232,197,71,0.08), transparent 28%),
+        var(--green-850);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .about-copy p { margin-bottom: 16px; color: #d9f0df; }
+    .pillars {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .pillar {
+      background: rgba(14, 58, 28, 0.55);
+      border: 1px solid rgba(47, 212, 94, 0.2);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-weight: 700;
+      color: var(--gold-bright);
+    }
+    .about-art {
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(232,197,71,0.28);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+    }
+    .about-art img { width: 100%; height: 100%; object-fit: cover; min-height: 360px; }
+
+    .how { background: var(--green-900); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .step {
+      background: linear-gradient(180deg, rgba(20,99,44,0.35), rgba(4,18,8,0.6));
+      border: 1px solid rgba(47,212,94,0.22);
+      border-radius: 20px;
+      padding: 22px 18px 24px;
+      min-height: 220px;
+    }
+    .step-num {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2rem;
+      color: var(--gold);
+    }
+    .step h3 { margin: 8px 0 10px; font-size: 1.15rem; }
+    .step p { color: #cfead6; font-size: 0.95rem; }
+
+    .socials {
+      background:
+        linear-gradient(180deg, rgba(14,58,28,0.45), rgba(4,18,8,0.9)),
+        var(--green-800);
+      text-align: center;
+    }
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .social-card {
+      min-width: 180px;
+      background: rgba(4,18,8,0.55);
+      border: 1px solid rgba(232,197,71,0.3);
+      border-radius: 18px;
+      padding: 22px 18px;
+      font-weight: 800;
+      color: var(--gold-bright);
+    }
+    .social-card:hover { background: rgba(26,154,66,0.28); }
+
+    footer {
+      border-top: 1px solid rgba(47,212,94,0.18);
+      padding: 28px 0 40px;
+      text-align: center;
+      color: #9cc9ab;
+      font-size: 0.9rem;
+    }
+    footer img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin: 0 auto 10px;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .about-grid, .steps { grid-template-columns: 1fr; }
+      .hero { min-height: 78vh; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <img src="./logo.jpg" alt="ANSEMBULL logo" />
+        ANSEMBULL
+      </a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#howtobuy">How to Buy</a>
+        <a href="#socials">Socials</a>
+        <a class="btn btn-gold" href="https://x.com/ansemthebullsol" target="_blank" rel="noopener">Twitter / X</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <img class="hero-banner" src="./banner.jpg" alt="ANSEMBULL golden bull banner" />
+    <div class="hero-content">
+      <img class="hero-logo" src="./logo.jpg" alt="ANSEMBULL" />
+      <div class="kicker">Solana • PumpSwap</div>
+      <h1>$ANSEMBULL<span>THE GOLDEN BULL IS HERE 🐂⚡️</span></h1>
+      <p>Join the herd. Feel the momentum. Charge together. No fear. No hesitation. Eyes on the market and horns pointed forward.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=ANSEMBULLSOON" target="_blank" rel="noopener">Buy on PumpSwap</a>
+        <a class="btn btn-outline" href="#about">About the Bull</a>
+      </div>
+      <div class="ca-bar">
+        <div>
+          <small>Contract Address</small><br />
+          <code id="ca">ANSEMBULLSOON</code>
+        </div>
+        <button class="copy-btn" type="button" onclick="copyCA()">Copy CA</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <div class="kicker">The herd</div>
+        <h2>About ANSEMBULL</h2>
+        <p><strong>$ANSEMBULL</strong> is a community-powered token inspired by the unstoppable strength, confidence, and momentum of the bull market.</p>
+        <p>Built for traders, believers, and crypto enthusiasts who are always searching for the next big move, $ANSEMBULL represents the mindset of charging forward no matter what stands in the way.</p>
+        <p>The golden bull symbolizes power, ambition, prosperity, and momentum — the spirit behind the ANSEMBULL community.</p>
+        <p><strong>$ANSEMBULL — STRENGTH. MOMENTUM. PROSPERITY.</strong></p>
+        <div class="pillars">
+          <div class="pillar">🐂 Strength — charge through the noise</div>
+          <div class="pillar">⚡️ Momentum — never stop moving</div>
+          <div class="pillar">📈 Prosperity — golden bull energy</div>
+        </div>
+      </div>
+      <div class="about-art">
+        <img src="./logo.jpg" alt="Golden bull ANSEMBULL mascot" />
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="howtobuy">
+    <div class="wrap">
+      <div class="kicker">Get in</div>
+      <h2>How to Buy</h2>
+      <p class="lede">$ANSEMBULL lives on Solana and trades on PumpSwap. Grab a wallet, load SOL, paste the CA, and join the charge.</p>
+      <div class="steps">
+        <article class="step">
+          <div class="step-num">01</div>
+          <h3>Get a Solana wallet</h3>
+          <p>Install Phantom, Backpack, or Solflare. Create a wallet and back up your seed phrase.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">02</div>
+          <h3>Fund with SOL</h3>
+          <p>Buy SOL on an exchange and send it to your wallet. You’ll need SOL for the swap and network fees.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">03</div>
+          <h3>Open PumpSwap</h3>
+          <p>Connect your wallet on PumpSwap / Pump.fun and paste the contract address <strong>ANSEMBULLSOON</strong>.</p>
+        </article>
+        <article class="step">
+          <div class="step-num">04</div>
+          <h3>Swap &amp; hold</h3>
+          <p>Swap SOL for $ANSEMBULL, confirm the transaction, and lock in with the herd. Horns pointed forward.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="socials" id="socials">
+    <div class="wrap">
+      <div class="kicker">Stay connected</div>
+      <h2>Socials</h2>
+      <p class="lede" style="margin-inline: auto;">Join the herd. Follow the charge. Share the golden bull energy.</p>
+      <div class="social-row">
+        <a class="social-card" href="https://x.com/ansemthebullsol" target="_blank" rel="noopener">𝕏 Twitter / X</a>
+        <a class="social-card" href="https://swap.pump.fun/?input=So11111111111111111111111111111111111111112&output=ANSEMBULLSOON" target="_blank" rel="noopener">PumpSwap</a>
+        <a class="social-card" href="#top">Copy CA</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <img src="./logo.jpg" alt="" />
+    <div>$ANSEMBULL — STRENGTH. MOMENTUM. PROSPERITY.</div>
+    <div style="margin-top:6px;">CA: ANSEMBULLSOON · Solana PumpSwap · Not financial advice</div>
+  </footer>
+
+  <script>
+    function copyCA() {
+      const ca = document.getElementById("ca").textContent.trim();
+      navigator.clipboard.writeText(ca).then(() => {
+        const btn = document.querySelector(".copy-btn");
+        btn.textContent = "Copied";
+        setTimeout(() => { btn.textContent = "Copy CA"; }, 1600);
+      });
+    }
+  </script>
+</body>
+</html>
